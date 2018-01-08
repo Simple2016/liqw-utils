@@ -11,6 +11,10 @@ import java.util.*;
  */
 public class JdbcUtil {
 
+    public static final String SQLITE_DRIVER_CLASS = "org.sqlite.JDBC";
+    public static final String MYSQL_DRIVER_CLASS = "com.mysql.jdbc.Driver";
+    public static final String PHOENIX_DRIVER_CLASS = "org.apache.phoenix.jdbc.PhoenixDriver";
+
     /**
      * @param driver 比如com.mysql.jdbc.Driver
      */
@@ -18,7 +22,7 @@ public class JdbcUtil {
         try {
             Class.forName(driver);
         } catch (ClassNotFoundException e) {
-            throw new RuntimeException("加载Mysql数据库驱动失败！",e);
+            throw new RuntimeException("加载Mysql数据库驱动失败！", e);
         }
         return new JdbcUtil();
     }
@@ -50,7 +54,7 @@ public class JdbcUtil {
             try {
                 rs.close();
             } catch (SQLException e) {
-                throw new RuntimeException("关闭ResultSet失败！",e);
+                throw new RuntimeException("关闭ResultSet失败！", e);
             }
         }
     }
@@ -65,7 +69,7 @@ public class JdbcUtil {
             try {
                 stmt.close();
             } catch (Exception e) {
-                throw new RuntimeException("关闭Statement失败！",e);
+                throw new RuntimeException("关闭Statement失败！", e);
             }
         }
     }
@@ -137,7 +141,7 @@ public class JdbcUtil {
             try {
                 con.close();
             } catch (Exception e) {
-                throw new RuntimeException("关闭连接失败！",e);
+                throw new RuntimeException("关闭连接失败！", e);
             }
         }
     }
