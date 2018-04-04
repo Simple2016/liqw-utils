@@ -30,13 +30,14 @@ public class TestJdbc {
 
     @Test
     public void testSqlite() {
+
         String url = "jdbc:sqlite:./test.db";
         JdbcUtil instance = JdbcUtil.getInstance(JdbcUtil.SQLITE_DRIVER_CLASS);
         Connection connection = instance.getConnection(url, null, null);
         String sql = "DROP TABLE IF EXISTS `COMPANY`;";
-        System.out.println(instance.excute(connection, sql));
+//        System.out.println(instance.excute(connection, sql));
 
-        sql = "CREATE TABLE COMPANY " +
+        sql = "CREATE TABLE IF NOT EXISTS `COMPANY`  " +
                 "(ID INT PRIMARY KEY     NOT NULL," +
                 " NAME           TEXT    NOT NULL, " +
                 " AGE            INT     NOT NULL, " +
