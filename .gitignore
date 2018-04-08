@@ -1,0 +1,9 @@
+*.idea
+*.iml
+*.classpath
+*.project
+*.class
+*.jar
+*/src/main/webapp/WEB-INF/classes
+*/target
+target
